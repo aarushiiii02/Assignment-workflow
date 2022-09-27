@@ -16,8 +16,9 @@ on:
      firstNum:
        description : 'enter first number:'
        rquirement: true
+      
      secondNum:
-      description : 'enter second number:'
+       description : 'enter second number:'
        rquirement: true
     
 
