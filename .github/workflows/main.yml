@@ -13,11 +13,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-     logLevel:
-      description :
-       default:
-    tags:
-     description: 
+     firstNum:
+      description : 'enter first number:'
+       rquirement: true
+     secondNum:
+      description : 'enter second number:'
+       rquirement: true
+    
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -31,13 +33,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.10
+      env:
+      firstnum:  github.event.inputs.firstnum
+      secondnum: github.event.inputs.secondnum
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run python script for addition
+        run: 
+         python addition.py $firstNum $secondNum
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      
