@@ -43,7 +43,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run python script for addition
         run: 
-         python addition.py $firstNum $secondNum
+          python addition.py $firstNum $secondNum
 
       # Runs a set of commands using the runners shell
       
