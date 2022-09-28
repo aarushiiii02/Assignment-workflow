@@ -5,8 +5,8 @@ name: Assignment-add
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
+  #push:
+    #branches: [ "main" ]
   #pull_request:
    # branches: [ "main" ]
 
@@ -21,7 +21,9 @@ on:
        description : 'enter second number:'
        rquirement: true
     
-
+env:
+  firstNum: ${{github.events.inputs.firstNum}}
+  secondNum: ${{github.event.inputs.secondnum}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -37,9 +39,7 @@ jobs:
       - uses: actions/setup-python@v3
         with:
          python-version: 3.10
-      env:
-       firstNum: github.events.inputs.firstNum
-       secondNum: github.event.inputs.secondnum
+      
       # Runs a single command using the runners shell
       - name: Run python script for addition
         run: 
